@@ -1,0 +1,12 @@
+version: 2
+jobs:
+  build:
+    machine: true
+    working_directory: ~/project
+    steps:
+      - checkout
+      - run:
+          command: |
+            sudo apt update && sudo apt install -y snapd
+            sudo snap install snapcraft --edge --classic
+            /snap/bin/snapcraft
